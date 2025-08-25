@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TC_BLENDZZ- Vse za lepši izgled</title>
+  <meta name="description" content="Moško,žensko in otroško striženje. Enostavno spletno naročanje." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="spletnastran.css" />
+</head>
+<body>
+
+  <!-- ===== Header / Navbar ===== -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#domov" class="logo">TC_BLENDZZ<span>.</span></a>
+
+      <!-- CSS-only hamburger -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Odpri meni">
+      <label for="nav-toggle" class="hamburger" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="nav-links">
+        <a href="#domov">Domov</a>
+        <a href="#onas">O meni</a>
+        <a href="#narocanje" class="cta-link">Naročanje</a>
+        <a href="#ponudba">Ponudba</a>
+        <a href="#galerija">Galerija</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section id="domov" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1>Vse za lepši izgled</h1>
+        <p class="lead">Oblikovanje samozavesti in izgleda. Moško striženje in žensko striženje.</p>
+        <div class="hero-actions">
+          <a href="#narocanje" class="btn primary">Rezerviraj termin</a>
+          <a href="#ponudba" class="btn ghost">Oglej si ponudbo</a>
+        </div>
+      </div>
+      <div class="hero-media" aria-hidden="true">
+        <!-- Zamenjaj s svojo sliko (1920x1280 priporočeno) -->
+        <div class="hero-img"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== O nas ===== -->
+  <section id="onas" class="section">
+    <div class="container two-col">
+      <div>
+        <h2>Natančnost &amp; stil</h2>
+        <p>Dobrodošli v moj salon iz katerega boste odšli lepši kot kadar koli prej.</p>
+        <ul class="checks">
+          <li>Posvet z frizerjem pred vsakim striženjem</li>
+          <li>Enostavno spletno naročanje</li>
+        </ul>
+        <a href="#narocanje" class="btn">Naroči se</a>
+      </div>
+      <div class="card highlight">
+        <h3>Delovni čas</h3>
+        <div class="hours">
+          <div><span>Sob</span><span>08:00–20:00</span></div>
+          <div><span>Ned</span><span>12:00-17:00</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Ponudba / Storitve ===== -->
+  <section id="ponudba" class="section alt">
+    <div class="container">
+      <h2>Storitve</h2>
+      <div class="grid3">
+        <article class="service">
+          <div class="icon">💈</div>
+          <h3>Striženje</h3>
+          <p>Posvet z frizerjem,striženje in oblikovanje frizure.</p>
+          <div class="icon">💈</div>
+          <h4>Urejanje brade</h4>
+          <p>Posvet z frizerjem,striženje in oblikovanje brade.</p>
+        </article>
+      </div>
+
+      <div class="pricing">
+        <h3>Cenik</h3>
+        <div class="price-list">
+          <div class="price-item"><span>Moško striženje</span><span>10 € '30 min'</span></div>
+          <div class="price-item"><span>Žensko striženje</span><span>15 € '60 min' </span></div>
+          <div class="price-item"><span>Fade</span><span>10 € '40 min' </span></div>
+          <div class="price-item"><span>Urejanje brade</span><span>5 € '15 min' </span></div>
+          <div class="price-item"><span>Urejanje brade+striženje</span><span>12 € '50 min' </span></div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ===== Naročanje ===== -->
+  <section id="narocanje" class="section">
+    <div class="container narrow">
+      <h2>Naročanje</h2>
+      <p class="lead">Izpolni obrazec in potrditveno sporočilo dobiš na e-pošto.</p>
+
+      <!-- 
+        Privzeto je nastavljen primer z Formspree (brez strežnika).
+        1) Ustvari brezplačen obrazec na formspree.io, 
+        2) zamenjaj ACTION spodaj z njihovo povezavo (npr. https://formspree.io/f/xxxxx).
+        Alternativa: mailto: ali lasten backend.
+      -->
+      <form class="booking-form" action="https://formspree.io/f/xgvlewgj" method="POST">
+        <div class="grid2">
+          <label>Ime in priimek
+            <input type="text" name="ime" required placeholder="Janez Novak">
+          </label>
+          <label>Telefon
+            <input type="tel" name="telefon" required inputmode="tel" placeholder="+386 40 123 456">
+          </label>
+        </div>
+        <div class="grid2">
+          <label for="date">Izberite datum:</label>
+  <input type="date" id="date" onchange="showAvailableTimes()">
+
+  <!-- Tu se bodo prikazale proste ure -->
+  <div id="time-container" class="day-section"></div>
+
+  <button onclick="submitBooking()">Rezerviraj</button>
+        <label>Storitev
+          <select name="storitev" required>
+            <option value="">— Izberi —</option>
+            <option>Moško striženje</option>
+            <option>Žensko striženje</option>
+            <option>Fade</option>
+            <option>Urejanje brade</option>
+            <option>Urejanje brade+striženje</option>
+          </select>
+        </label>
+        <label>Sporočilo (neobvezno)
+          <textarea name="sporocilo" rows="4" placeholder="Posebne želje ali opombe…"></textarea>
+        </label>
+
+
+  <!-- ===== Galerija ===== -->
+  <section id="galerija" class="section alt">
+    <div class="container">
+      <h2>Galerija</h2>
+      <div class="gallery">
+        <!-- Zamenjaj src z lastnimi slikami -->
+        <img src="LOGO.jpg" alt="Striženje 1">
+        <img src="SLIKA1.jpg" alt="Striženje 2">
+        <img src="SLIKA2.jpg" alt="Brada 1">
+        <img src="SLIKA3.jpg" alt="Brada 2">
+        <img src="SLIKA4.jpg" alt="Salon">
+      </div>
+    </div>
+  </section>
+  <!-- ===== Kontakt ===== -->
+  <section id="kontakt" class="section alt">
+    <div class="container two-col">
+      <div>
+        <h2>Kontakt</h2>
+        <div class="contact-list">
+          <div><strong>Naslov:</strong> Maistrova ulica 13, 6250 Ilirska Bistrica</div>
+          <div><strong>Telefon:</strong> <a href="tel:+38630647533">+386 65 601 200</a></div>
+          <div><strong>E-pošta:</strong> <a href="tcblendzz@gmail.com">tcblendzz@gmail.com</a></div>
+        </div>
+        <div class="socials">
+          <a href="https://www.instagram.com/tc_blendzz/" aria-label="Instagram">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=100065857830726" aria-label="Facebook">Facebook</a>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <!-- Zamenjaj src z lastnim Google Maps embed (Share → Embed a map) -->
+        <iframe
+          title="Zemljevid lokacije"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2792.9881536530834!2d14.235240375236929!3d45.57067682632959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4764b4cf57a6ee57%3A0x397cd10451e64210!2sMaistrova%20ulica%2013%2C%206250%20Ilirska%20Bistrica!5e0!3m2!1ssl!2ssi!4v1756144713884!5m2!1ssl!2ssi">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container foot">
+      <p>© <span id="year"></span> Frizerski salon. Vse pravice so pridržane.</p>
+      <a href="#domov" class="back-to-top">Na vrh ↑</a>
+    </div>
+  </footer>
+
+  <!-- Majhen inline skript samo za leto v footerju; odstrani, če želiš 100% brez JS -->
+  <script src="script.js"></script>
+</body>
+</html>
